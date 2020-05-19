@@ -14,7 +14,6 @@ protected: // 仅从序列化创建
 // 特性
 public:
 	CExpriment1Doc* GetDocument() const;
-	int count;
 
 // 操作
 public:
@@ -41,6 +40,7 @@ protected:
 public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 //	void OnRButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // Expriment1View.cpp 中的调试版本

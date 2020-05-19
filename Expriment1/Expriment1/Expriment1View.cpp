@@ -24,6 +24,7 @@ IMPLEMENT_DYNCREATE(CExpriment1View, CView)
 BEGIN_MESSAGE_MAP(CExpriment1View, CView)
 	ON_WM_LBUTTONDOWN()
 //	ON_WM_RBUTTONDOWN()
+ON_WM_RBUTTONDOWN()
 END_MESSAGE_MAP()
 
 // CExpriment1View 构造/析构
@@ -31,7 +32,7 @@ END_MESSAGE_MAP()
 CExpriment1View::CExpriment1View()
 {
 	// TODO: 在此处添加构造代码
-	count = 0;
+	CString s;
 }
 
 CExpriment1View::~CExpriment1View()
@@ -86,9 +87,20 @@ CExpriment1Doc* CExpriment1View::GetDocument() const // 非调试版本是内联的
 void CExpriment1View::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	CExpriment1Doc* pDoc = GetDocument();
 	CView::OnLButtonDown(nFlags, point);
-	CString s1 = _T("我是李游");
-	CClientDC dc(this);
-	dc.TextOutW(300, 400, s1);
+	pDoc->count++;
+}
+
+
+void CExpriment1View::OnRButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	CExpriment1Doc* pDoc = GetDocument();
+	CView::OnRButtonDown(nFlags, point);
+	CString s;
+	s.Format( _T("%d"),pDoc->count);
+	CClientDC DC(this);
+	DC.TextOutW(200, 200, s);
 
 }
