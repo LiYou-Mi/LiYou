@@ -31,7 +31,6 @@ END_MESSAGE_MAP()
 CExpriment1View::CExpriment1View()
 {
 	// TODO: 在此处添加构造代码
-	count = 0;
 }
 
 CExpriment1View::~CExpriment1View()
